@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Cadastro de Alunos</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<table class="table container">
+    <thead>
+      <tr>
+        <th>Matricula</th>
+        <th>Nome</th>
+        <th>1ªnota</th>
+        <th>2ªnota</th>
+        <th>3ªnota</th>
+        <th>Media</th>
+        <th> Situação</th>
+      </tr>
+    </thead>
+    <tbody>
+    	<tr th:each="a : ${alunos}">
+    		<td th:text="${a.matricula}"></td>
+    		<td th:text="${a.nome}"></td>
+    		<td th:text="${a.nota1}"></td>
+    		<td th:text="${a.nota2}"></td>
+    		<td th:text="${a.nota3}"></td>
+    		<td th:text="${a.media}"></td>
+    		<td th:text="${a.situacao}"></td>
+    		<td> <a th:href="@{delete/{matricula}(matricula=${a.matricula})}" type="button" class="btn btn-danger btn-outline">Deletar</a>
+		        <a th:href="@{editar/{matricula}(matricula=${a.matricula})}" type="button" class="btn btn-warning btn-outline">Editar</a></td>
+    	</tr>
+  
+    </tbody>
+  </table>
+
+</body>
+</html>

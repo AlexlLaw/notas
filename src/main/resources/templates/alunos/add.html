@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Cadastro de Alunos</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form class="container" id="form" th:object="${aluno}" th:action="@{/alunos/salva}" method="POST">
+    <div class="form-group">
+      <input type="hidden" class="form-control" id="matricula" th:field="*{matricula}" placeholder="digite aqui...">
+    </div>
+    
+    <div class="form-group">
+      <label for="aluno">Aluno</label>
+      <input type="text" class="form-control" id="aluno" th:field="*{nome}" placeholder="digite aqui...">
+    </div>
+    
+    <div class="form-group">
+      <label for="formGroupExampleInput">Primeira Nota</label>
+      <input type="text" class="form-control" id="n1" th:field="*{nota1}" placeholder="digite aqui...">
+    </div>
+    
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Segunda Nota</label>
+      <input type="text" class="form-control" id="n2" th:field="*{nota2}" placeholder="digite aqui...">
+    </div>
+    
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Teceira Nota</label>
+      <input type="text" class="form-control" id="n3" th:field="*{nota3}" placeholder="digite aqui...">
+    </div>
+    
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Média</label>
+      <input type="text" class="form-control" id="media" th:field="*{media}" placeholder="digite aqui...">
+    </div>
+    
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Situação</label>
+      <input type="text" class="form-control" id="situacao" th:field="*{situacao}" placeholder="digite aqui...">
+    </div>
+    
+    <div class="form-group row">
+      
+      <button type="submit" id="btn" class="btn btn-lg btn-primary">Cadastrar</button>
+      
+      <a th:href="@{/alunos/lista}" class="btn btn-sm btn-default">Cancelar</a>
+    </div>
+  </form>
+
+</body>
+</html>
